@@ -66,14 +66,29 @@ d3.gantt = function() {
 
 	yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);
     };
+
     
-    function gantt(tasks) {
+    function gantt(tasks, container) {
 	
 	initTimeDomain(tasks);
-	initAxis();
-	
-	var svg = d3.select("body")
-	.append("svg")
+	initAxis();	
+	var svg;
+        var tooltip_div;
+
+        if (typeof container !== 'undefined') {
+console.log(container);
+            svg = d3.select(container);
+
+	} else {
+            svg = d3.select("body");
+	}
+
+	tooltip_div= svg.append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+	// add the rest
+        svg = svg.append("svg")
 	.attr("class", "chart")
 	.attr("width", width + margin.left + margin.right)
 	.attr("height", height + margin.top + margin.bottom)
@@ -97,7 +112,22 @@ d3.gantt = function() {
 	 .attr("height", function(d) { return y.rangeBand(); })
 	 .attr("width", function(d) { 
 	     return (x(d.endDate) - x(d.startDate)); 
-	     });
+	     })
+	 .on("mousemove", function(d) {
+	    var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
+	    console.log(d);   
+            tooltip_div.transition()        
+                .duration(100)      
+                .style("opacity", .9);      
+            tooltip_div .html(d.taskName + "<br/>" + d.status)  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px");    
+            })
+	 .on("mouseout", function(d) {       
+            tooltip_div.transition()        
+                .duration(200)      
+                .style("opacity", 0);   
+	 });
 	 
 	 
 	 svg.append("g")
@@ -107,7 +137,7 @@ d3.gantt = function() {
 	 .call(xAxis);
 	 
 	 svg.append("g").attr("class", "y axis").transition().call(yAxis);
-	 
+	
 	 return gantt;
 
     };
