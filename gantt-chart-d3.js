@@ -76,7 +76,6 @@ d3.gantt = function() {
         var tooltip_div;
 
         if (typeof container !== 'undefined') {
-console.log(container);
             svg = d3.select(container);
 
 	} else {
@@ -115,7 +114,6 @@ console.log(container);
 	     })
 	 .on("mousemove", function(d) {
 	    var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
-	    console.log(d);   
             tooltip_div.transition()        
                 .duration(100)      
                 .style("opacity", .9);      
