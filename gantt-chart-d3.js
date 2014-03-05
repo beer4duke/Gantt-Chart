@@ -140,12 +140,20 @@ d3.gantt = function() {
 
     };
     
-    gantt.redraw = function(tasks) {
+    gantt.redraw = function(tasks, container) {
 
 	initTimeDomain(tasks);
 	initAxis();
 	
-        var svg = d3.select("svg");
+        var svg;
+        var tooltip_div;
+        if (typeof container !== 'undefined') {
+            tooltip_div = d3.select(container).select("div.tooltip");
+            svg = d3.select(container).select("svg");
+        } else {
+            tooltip_div = d3.select("body").select("div.tooltip");
+            svg = d3.select("body").select("svg");
+        }
 
         var ganttChartGroup = svg.select(".gantt-chart");
         var rect = ganttChartGroup.selectAll("rect").data(tasks, keyFunction);
@@ -157,7 +165,21 @@ d3.gantt = function() {
 	 .attr("class", function(d){ 
 	     if(taskStatus[d.status] == null){ return "bar";}
 	     return taskStatus[d.status];
-	     }) 
+	     })
+         .on("mousemove", function(d) {
+            var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
+            tooltip_div.transition()
+                .duration(100)
+                .style("opacity", .9);
+            tooltip_div .html(d.taskName + "<br/>" + d.status)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+            })
+         .on("mouseout", function(d) {
+            tooltip_div.transition()
+                .duration(200)
+                .style("opacity", 0);
+         }) 
 	 .transition()
 	 .attr("y", 0)
 	 .attr("transform", rectTransform)
@@ -166,8 +188,9 @@ d3.gantt = function() {
 	     return (x(d.endDate) - x(d.startDate)); 
 	     });
 
+
         rect.transition()
-          .attr("transform", rectTransform)
+         .attr("transform", rectTransform)
 	 .attr("height", function(d) { return y.rangeBand(); })
 	 .attr("width", function(d) { 
 	     return (x(d.endDate) - x(d.startDate)); 

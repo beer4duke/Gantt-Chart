@@ -42,7 +42,7 @@ example.addTask = function() {
     var taskName = taskNames[Math.floor(Math.random()*taskNames.length)];
     
     tasks.push({"startDate":d3.time.hour.offset(lastEndDate,Math.ceil(1*Math.random())),"endDate":d3.time.hour.offset(lastEndDate,(Math.ceil(Math.random()*3))+1),"taskName":taskName,"status":taskStatusName});
-    gantt.redraw(tasks);
+    gantt.redraw(tasks, "#container1");
 };
 
 example.removeTask = function() {
