@@ -32,20 +32,32 @@ div.tooltip {
 	fill: #33b5e5;
 }
 
+.bar:hover {
+	fill: #83b5e5;
+} 
+
 .bar-failed {
 	fill: #CC0000;
+}
+
+.bar-failed:hover {
+        fill: #CC5050;
 }
 
 .bar-running {
 	fill: #669900;
 }
 
-.bar-succeeded {
-	fill: #33b5e5;
+.bar-running:hover {
+        fill: #669950;
 }
 
 .bar-killed {
 	fill: #ffbb33;
+}
+
+.bar-killed:hover {
+        fill: #ffbb83;
 }
 
 #forkme_banner {
