@@ -1,0 +1,8 @@
+[
+{"category": "drive 0", "task": "server 0", "from": 1384764061500, "to": 1384764062600, "tooltip": "tape 0"},
+{"category": "drive 1", "task": "server 1", "from": 1384764062300, "to": 1384764072600, "tooltip": "tape 1"},
+{"category": "drive 2", "task": "server 0", "from": 1384764061500, "to": 1384764071600, "tooltip": "tape 0"},
+{"category": "drive 0", "task": "server 2", "from": 1384764062700, "to": 1384764063600, "tooltip": "tape 4"},
+{"category": "drive 2", "task": "server 1", "from": 1384764060500, "to": 1384764061000, "tooltip": "tape 0"},
+{"category": "drive 0", "task": "server 2", "from": 1384764064500, "to": 1384764066000, "tooltip": "tape 5"}
+]

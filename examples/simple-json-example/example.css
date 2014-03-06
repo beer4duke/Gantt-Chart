@@ -1,0 +1,97 @@
+html,body,#wrapper {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+}
+
+div.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 60px;                  
+  height: 28px;                 
+  padding: 2px;             
+  font: 12px sans-serif;        
+  background: lightsteelblue;   
+  border: 0px;      
+  border-radius: 8px;           
+  pointer-events: none;         
+}
+
+.chart {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+}
+
+.axis path,.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.bar {
+	fill: #33b5e5;
+}
+
+.bar:hover {
+	fill: #83b5e5;
+} 
+
+.bar-failed {
+	fill: #CC0000;
+}
+
+.bar-failed:hover {
+        fill: #CC5050;
+}
+
+.bar-running {
+	fill: #669900;
+}
+
+.bar-running:hover {
+        fill: #669950;
+}
+
+.bar-killed {
+	fill: #ffbb33;
+}
+
+.bar-killed:hover {
+        fill: #ffbb83;
+}
+
+#forkme_banner {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	z-index: 10;
+	padding: 10px 50px 10px 10px;
+	color: #fff;
+	background:
+		url('http://dk8996.github.io/Gantt-Chart/images/blacktocat.png')
+		#0090ff no-repeat 95% 50%;
+	font-weight: 700;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	text-decoration: none;
+}
+
+#twittme_banner {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 180px;
+	z-index: 10;
+	padding: 10px 50px 10px 10px;
+	color: #fff;
+	background:
+		url('http://dk8996.github.io/Gantt-Chart/images/twitter.png')
+		#0090ff no-repeat 95% 50%;
+	font-weight: 700;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	text-decoration: none;
+}
