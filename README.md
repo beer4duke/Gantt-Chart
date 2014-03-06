@@ -4,6 +4,8 @@ I am going to test those features and make them more robust.
 
 The main point I am interested in are: tooltips, multiple gantt chart support per page, a basic legend and some X axis zooming capabilities.
 
+Additionally I have added hover colors in the CSS so that you can easy highlight the bar you are reading the tooltip from. It is convenient when you have a lot of bars around.
+
 Do not hesitate to contact me if interested.
 
 ## Introduction
