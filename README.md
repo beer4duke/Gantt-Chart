@@ -1,3 +1,11 @@
+## Pre-introduction
+This is a fork from dk8996, adding a bunch of features. I have added tooltips, they are not too nice for the moment, but the basic code is here to show them in all the examples without any modification (just need to add a few lines in the CSS and you are gone). Beginning of support for multiple containers, so that you can have several gantt charts on the same web page and control them independently (not tested).
+I am going to test those features and make them more robust.
+
+The main point I am interested in are: tooltips, multiple gantt chart support per page, a basic legend and some X axis zooming capabilities.
+
+Do not hesitate to contact me if interested.
+
 ## Introduction
 A basic implementation of a Gantt Chart using D3.js. Here is a example [Example 1] (http://bl.ocks.org/dk8996/5534835) and another one [Example 2] (http://bl.ocks.org/dk8996/5449641).
 
